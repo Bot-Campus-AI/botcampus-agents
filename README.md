@@ -51,7 +51,7 @@ print(response)
 ▶️ Run it:
 
 ```bash
-python examples/simple_agent_demo.py
+python -m examples.simple_agent_demo.py
 ```
 
 ---
