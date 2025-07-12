@@ -1,87 +1,127 @@
 
-# 🧠 botcampus-agents
+# 🤖 botcampus-agents
 
-**BotCampus Agents** is a lightweight Python SDK to help learners and developers build simple AI agents using OpenAI and automation workflows.  
-Built by [BotCampus AI](https://www.botcampus.ai) — designed for education, prototyping, and agent-driven learning.
+**BotCampus Agents** is a lightweight Python SDK that helps learners, developers, and automation enthusiasts build **simple AI agents** using OpenAI and workflow orchestration tools like `n8n` or `Make`.
+
+Built by [**BotCampus AI**](https://www.botcampus.ai) — designed for **education**, **agent prototyping**, and **agent-driven learning**.
+
+---
+
+## 🌍 Built in Dubai 🇦🇪
+
+This project is proudly built and maintained in **Dubai** as part of the regional push to democratize AI access and foster innovation across MENA.
 
 ---
 
 ##  Features
 
-- ✅ Create OpenAI-powered AI agents with a few lines of code
-- 🧩 Customize system prompts and models (GPT-4, GPT-3.5)
-- 💡 Simple API for running conversational agents
-- 🔒 Supports `.env`-based key management
-- 🧪 Built for hands-on projects and educational workshops
+- ✅ Modular Agent class structure
+- 🔁 Works with OpenAI's GPT models
+- 🔒 .env-based key management
+- 📦 Simple to extend and integrate into automation workflows (e.g., n8n)
+- 🧠 Ideal for education, experimentation, and rapid prototyping
 
 ---
 
-## 📦 Installation
+## 🛠️ Quick Start
 
-Clone the repo and install in editable mode:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Bot-Campus-AI/botcampus-agents.git
 cd botcampus-agents
-pip install -e .
 ````
 
----
+### 2. Set up the environment
 
-## 🔐 Setup
+```bash
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
 
-Create a `.env` file in the root:
+### 3. Add your `.env` file
+
+Create a `.env` file in the root directory and include your OpenAI key:
 
 ```env
-OPENAI_API_KEY=your_openai_key_here
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxx
+```
+
+### 4. Run a demo
+
+```bash
+python -m examples.simple_agent_demo
 ```
 
 ---
 
-## 🧪 Example
+## 📁 Project Structure
+
+```
+botcampus-agents/
+│
+├── botcampus/              # Core SDK logic (agent classes, handlers)
+├── examples/               # Sample use cases and agent demos
+├── tests/                  # Unit tests (coming soon)
+├── .env                    # Environment variables (not checked in)
+├── requirements.txt        # Python dependencies
+├── setup.py                # Package setup
+└── README.md
+```
+
+---
+
+## 🧪 Sample Usage
 
 ```python
 from botcampus.agent import BotCampusAgent
 
-agent = BotCampusAgent(system_prompt="You are a helpful assistant.")
-response = agent.run("What's the capital of the UAE?")
-print(response)
+agent = BotCampusAgent(model="gpt-3.5-turbo")
+response = agent.ask("What's the capital of UAE?")
+print("🤖", response)
 ```
 
-▶️ Run it:
+Expected Output:
 
 ```bash
-python -m examples.simple_agent_demo.py
+🤖 The capital of the United Arab Emirates (UAE) is Abu Dhabi.
 ```
 
 ---
 
-## 🧰 File Structure
+## 📦 Install as a package (optional)
 
-```
-botcampus/
-│
-├── agent.py            # Core BotCampusAgent class
-├── memory.py           # (Coming soon) Memory manager
-├── prompt_chain.py     # (Coming soon) Chaining prompts
-├── utils.py            # Utilities
-│
-examples/
-└── simple_agent_demo.py
-
-tests/
-└── test_agent.py
-```
+Coming soon via PyPI...
 
 ---
 
-## 📄 License
+## 🔖 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ---
 
-## 🙌 Credits
+## 💼 Use Cases
 
-Created by the team at [BotCampus AI](https://www.botcampus.ai)
-Empowering 1 million learners in AI by 2027 from Dubai.
+* AI workshops and bootcamps
+* Students learning prompt-driven development
+* Educators building agent-based curricula
+* Integrators using AI in automation workflows
+
+---
+
+## 📢 About BotCampus AI
+
+**BotCampus AI** empowers learners with interactive and hands-on AI projects.
+This project illustrates the capability to build fast, functional AI agents for real-world use cases.
+
+**Contact Us:**
+
+* 🌐 [www.botcampus.ai](https://www.botcampus.ai)
+* 📧 [support@botcampus.ai](mailto:support@botcampus.ai)
+* 🔗 [LinkedIn](https://www.linkedin.com/company/botcampusai)
+
+---
+
+🟦 **Built in Dubai • For the World**
