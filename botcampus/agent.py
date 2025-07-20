@@ -1,24 +1,17 @@
-import openai
-from openai import OpenAI
-from dotenv import load_dotenv
+import time
+from .utils import call_model
+from .memory import ChatMemory
 
-load_dotenv()
-client = OpenAI()
+class InterviewAgent:
+    def __init__(self, model_name, role="General", temperature=0.7):
+        self.model_name = model_name
+        self.role = role
+        self.temperature = temperature
+        self.memory = ChatMemory()
 
-class BotCampusAgent:
-    def __init__(self, system_prompt: str, model="gpt-3.5-turbo"):
-        self.system_prompt = system_prompt
-        self.model = model
-
-    def run(self, user_input: str) -> str:
-        try:
-            response = client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": str(self.system_prompt)},
-                    {"role": "user", "content": str(user_input)}
-                ]
-            )
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            return f"❌ Agent Error: {e}"
+    def ask(self, question):
+        context = self.memory.get_context()
+        prompt = f"Role: {self.role}\nContext: {context}\nQuestion: {question}"
+        response = call_model(prompt, model=self.model_name, temperature=self.temperature)
+        self.memory.update_memory(question, response)
+        return response
